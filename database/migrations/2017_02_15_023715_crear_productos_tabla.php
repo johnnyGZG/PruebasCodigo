@@ -36,6 +36,6 @@ class CrearProductosTabla extends Migration
     public function down()
     {
         // revertir los mismos cambios
-        Schema:drop('productos');
+        Schema::drop('productos');
     }
 }
