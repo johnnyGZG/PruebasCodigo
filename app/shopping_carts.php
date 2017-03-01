@@ -9,9 +9,19 @@ class shopping_carts extends Model
 
 	protected $fillable = ["estado"];
 
+    public function inShoppingCatrs(){
+
+        // Devuelve todos los registros relacionados con la tabla hace un JOIN
+        return $this->hasMany("App\inShoppingCatr");
+    }
+
+    public function productos(){
+        return $this->belongsToMany("App\Productos", "in_shopping_carts");
+    }
+
 	public function productsSize()
 	{
-		return $this->id;
+		return $this->productos()->count();
 	}
 
     public static function finOrCreateBySessionID($shopping_cart_id)
